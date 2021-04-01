@@ -89,7 +89,7 @@ public class HeapPriorityQueue<E extends Comparable<E>> {
     
     // ERIC returns index of left child of given index
     private int leftChild(int index) {
-        return index *2;
+        return index * 2;
     }
     
     // ERIC returns index of right child of given index
@@ -97,28 +97,25 @@ public class HeapPriorityQueue<E extends Comparable<E>> {
         return index * 2 + 1;
     }
     
-    // returns true if the node at the given index has a parent (is not the root)
+    // ERIC returns true if the node at the given index has a parent (is not the root)
     private boolean hasParent(int index) {
-    	// TO DO
-        return false;
+        return index > 1;
     }
     
-    // returns true if the node at the given index has a non-empty left child
+    // ERIC returns true if the node at the given index has a non-empty left child
     private boolean hasLeftChild(int index) {
-    	// TO DO
-        return false;
+        return leftChild(index) <= size;
     }
     
-    // returns true if the node at the given index has a non-empty right child
+    // ERIC returns true if the node at the given index has a non-empty right child
     private boolean hasRightChild(int index) {
-    	// TO DO
-        return false;
+        return rightChild(index) <= size;
     }
     
     // ERIC switches the values at the two given indexes of the given array
     private void swap(E[] a, int index1, int index2) {
     	E int = a[index1];
         a[index1] = a[index2];
-        a[index2] = x;
+        a[index2] = E;
     }
 }
