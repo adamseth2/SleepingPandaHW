@@ -114,8 +114,8 @@ public class HeapPriorityQueue<E extends Comparable<E>> {
     
     // ERIC switches the values at the two given indexes of the given array
     private void swap(E[] a, int index1, int index2) {
-    	E int = a[index1];
+    	E x = a[index1];
         a[index1] = a[index2];
-        a[index2] = E;
+        a[index2] = x;
     }
 }
