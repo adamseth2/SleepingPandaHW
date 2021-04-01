@@ -63,7 +63,7 @@ public class HeapPriorityQueue<E extends Comparable<E>> {
     	return null;
     }
     
-    // Returns the number of elements in the queue.
+    // ERIC Returns the number of elements in the queue.
     public int size() {
         return size;
     }
@@ -82,17 +82,17 @@ public class HeapPriorityQueue<E extends Comparable<E>> {
     }
     
     
-    // helpers for navigating indexes up/down the tree
+    // ERIC helpers for navigating indexes up/down the tree
     private int parent(int index) {
         return index / 2;
     }
     
-    // returns index of left child of given index
+    // ERIC returns index of left child of given index
     private int leftChild(int index) {
         return index *2;
     }
     
-    // returns index of right child of given index
+    // ERIC returns index of right child of given index
     private int rightChild(int index) {
         return index * 2 + 1;
     }
@@ -115,9 +115,9 @@ public class HeapPriorityQueue<E extends Comparable<E>> {
         return false;
     }
     
-    // switches the values at the two given indexes of the given array
+    // ERIC switches the values at the two given indexes of the given array
     private void swap(E[] a, int index1, int index2) {
-    	int x = a[index1];
+    	E int = a[index1];
         a[index1] = a[index2];
         a[index2] = x;
     }
