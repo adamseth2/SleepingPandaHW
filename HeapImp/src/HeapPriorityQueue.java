@@ -65,8 +65,7 @@ public class HeapPriorityQueue<E extends Comparable<E>> {
     
     // Returns the number of elements in the queue.
     public int size() {
-    	// TO DO
-        return 0;
+        return size;
     }
     
     // Returns a string representation of this queue, such as "[10, 20, 30]";
@@ -85,20 +84,17 @@ public class HeapPriorityQueue<E extends Comparable<E>> {
     
     // helpers for navigating indexes up/down the tree
     private int parent(int index) {
-    	// TO DO
-        return -1;
+        return index / 2;
     }
     
     // returns index of left child of given index
     private int leftChild(int index) {
-    	// TO DO
-        return -1;
+        return index *2;
     }
     
     // returns index of right child of given index
     private int rightChild(int index) {
-    	// TO DO
-        return -1;
+        return index * 2 + 1;
     }
     
     // returns true if the node at the given index has a parent (is not the root)
@@ -121,6 +117,8 @@ public class HeapPriorityQueue<E extends Comparable<E>> {
     
     // switches the values at the two given indexes of the given array
     private void swap(E[] a, int index1, int index2) {
-    	// TO DO
+    	int x = a[index1];
+        a[index1] = a[index2];
+        a[index2] = x;
     }
 }
