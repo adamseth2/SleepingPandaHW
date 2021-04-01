@@ -59,8 +59,36 @@ public class HeapPriorityQueue<E extends Comparable<E>> {
     // Removes and returns the minimum value in the queue.
     // If the queue is empty, throws a NoSuchElementException.
     public E remove() {
+        if(isEmpty()) {
+            throw new NoSuchElementException();
+        }
+
+        E lastEle = elementData[n - 1];
+        E minValue = elementData[0];
+        elementData[0] = lastEle;
+        size--;
+        int currNodeIndex = 0;
+        while(hasLeftChild(currNodeIndex) || hasRightChild(currNodeIndex)) {
+            int leftNodeDiff;
+            int rightNodeDiff;
+
+            if (hasLeftChild(currNodeIndex)) {
+                leftNodeDiff = elementData[currNodeIndex].compareTo(leftChild(currNodeIndex));
+            }
+            if (hasRightChild(currNodeIndex)) {
+                rightNodeDiff = elementData[currNodeIndex].compareTo(rightChild(currNodeIndex));
+            }
+            if (leftNodeDiff < rightNodeDiff) {
+                swap(elementData, currNodeIndex, rightChild(currNodeIndex));
+                currNodeIndex *= 2;
+            } else {
+                swap(elementData, currNodeIndex, leftChild(currNodeIndex));
+                currNodeIndex *= 2 + 1;
+            }
+        }
+
         //TO DO
-    	return null;
+    	return minValue;
     }
     
     // ERIC Returns the number of elements in the queue.
