@@ -15,27 +15,51 @@ public class HeapPriorityQueue<E extends Comparable<E>> {
     }
     
     // Adds the given element to this queue.
+    //Justin
     public void add(E value) {
-        // TO DO
+        if(size == elementData.length - 1){
+            elementData = Arrays.copyOf(elementData, 2 * elementData.length);
+        }
+        //adding in heap to rightmost leaf
+        elementData[size() + 1] = value;
+
+        int curIndex = size + 1;
+        boolean correctPosition = false;
+        while(!correctPosition && hasParent(curIndex)){
+            int parent = parent(curIndex);
+            if(elementData[curIndex].compareTo(elementData[parent]) < 0){
+                swap(elementData, curIndex, parent);
+                curIndex = parent(curIndex);
+            } else {
+                correctPosition = true;
+            }
+        }
+        size++;
     }
     
     // Returns true if there are no elements in this queue.
+    //Justin
     public boolean isEmpty() {
-    	// TO DO
-    	return false;
+        if(elementData[0] == null)
+            return false;
+        return true;
     }
     
     // Returns the minimum value in the queue without modifying the queue.
     // If the queue is empty, throws a NoSuchElementException.
+    //Justin
     public E peek() {
-    	// TO DO
-    	return null;
+        if(isEmpty()) {
+            throw new NoSuchElementException();
+        }
+        //Since it is a min heap the minimum value is the first value of the array
+    	return elementData[0];
     }
     
     // Removes and returns the minimum value in the queue.
     // If the queue is empty, throws a NoSuchElementException.
     public E remove() {
-    	// TO DO
+        //TO DO
     	return null;
     }
     
