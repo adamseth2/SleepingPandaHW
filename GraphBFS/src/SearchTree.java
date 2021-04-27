@@ -4,6 +4,11 @@
 // objects of type E.  E must implement the Comparable<E>
 // interface.
 
+import java.util.Collection;
+import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.Queue;
+
 public class SearchTree<E extends Comparable<E>> {
     private SearchTreeNode<E> overallRoot; // root of overall tree
 
@@ -125,7 +130,28 @@ public class SearchTree<E extends Comparable<E>> {
     }
 
 	public void printByLevel() {
-		// TODO 
-		
+        if(overallRoot == null){
+            return;
+        }
+        Queue<SearchTreeNode> x = new LinkedList<>();
+        boolean quit = true;
+        x.add(overallRoot);
+        while(quit){
+            int nums = x.size();
+            while(nums>0){
+               SearchTreeNode currentNode = x.peek();
+               System.out.print(currentNode.data);
+               if(currentNode.left != null)
+               x.add(currentNode.left);
+               if(currentNode.right != null)
+               x.add(currentNode.right);
+               x.remove();
+               nums--;
+            }
+            System.out.println();
+            if(x.isEmpty()){
+                quit = false;
+            }
+        }
 	}
 }
