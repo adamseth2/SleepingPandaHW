@@ -130,7 +130,8 @@ public class SearchTree<E extends Comparable<E>> {
     }
     //Justin wrote method code
     // ______ wrote the tests
-    //_______ wrote the time complexity
+    //Eric wrote the time complexity 
+    //TIME COMPLEXITY - O(n) in all cases - every level is printed as read per level due to utilization of queues	
 	public void printByLevel() {
         if(overallRoot == null){
             return;
