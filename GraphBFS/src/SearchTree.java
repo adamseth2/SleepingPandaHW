@@ -128,7 +128,9 @@ public class SearchTree<E extends Comparable<E>> {
     	}
     	
     }
-
+    //Justin wrote method code
+    // ______ wrote the tests
+    //_______ wrote the time complexity
 	public void printByLevel() {
         if(overallRoot == null){
             return;
