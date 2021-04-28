@@ -129,7 +129,7 @@ public class SearchTree<E extends Comparable<E>> {
     	
     }
     //Justin wrote method code
-    // ______ wrote the tests
+    //Adam wrote the tests and bug fixed
     //Eric wrote the time complexity 
     //TIME COMPLEXITY - O(n) in all cases - every level is printed as read per level due to utilization of queues	
 	public void printByLevel() {
@@ -143,7 +143,7 @@ public class SearchTree<E extends Comparable<E>> {
             int nums = x.size();
             while(nums>0){
                SearchTreeNode currentNode = x.peek();
-               System.out.print(currentNode.data);
+               System.out.print(currentNode.data + " ");
                if(currentNode.left != null)
                x.add(currentNode.left);
                if(currentNode.right != null)
