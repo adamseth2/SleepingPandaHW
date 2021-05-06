@@ -175,6 +175,8 @@ public class SearchTree<E extends Comparable<E>> {
             }
         }
     }
+	//time complexity: O(n)
+	//space complexity: O(n)
 	  public static void dfsRecur(Node rootNode)
     {
         if (rootNode == null) {
