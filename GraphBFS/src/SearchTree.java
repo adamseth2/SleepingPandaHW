@@ -157,6 +157,8 @@ public class SearchTree<E extends Comparable<E>> {
             }
         }
 	}
+	//time complexity: O(n)
+	//space complexity: O(n)
 	  public static void dfsIter(Node root)
     {
         Stack<Node> stack = new Stack();   
