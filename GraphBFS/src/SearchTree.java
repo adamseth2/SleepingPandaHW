@@ -8,6 +8,7 @@ import java.util.Collection;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.Queue;
+import java.util.Stack;
 
 public class SearchTree<E extends Comparable<E>> {
     private SearchTreeNode<E> overallRoot; // root of overall tree
@@ -128,41 +129,14 @@ public class SearchTree<E extends Comparable<E>> {
     	}
     	
     }
-    //Justin wrote method code
-    //Adam wrote the tests and bug fixed
-    //Eric wrote the time complexity 
-    //TIME COMPLEXITY - O(n) in all cases - every level is printed as read per level due to utilization of queues	
-	public void printByLevel() {
-        if(overallRoot == null){
-            return;
-        }
-        Queue<SearchTreeNode> x = new LinkedList<>();
-        boolean quit = true;
-        x.add(overallRoot);
-        while(quit){
-            int nums = x.size();
-            while(nums>0){
-               SearchTreeNode currentNode = x.peek();
-               System.out.print(currentNode.data + " ");
-               if(currentNode.left != null)
-               x.add(currentNode.left);
-               if(currentNode.right != null)
-               x.add(currentNode.right);
-               x.remove();
-               nums--;
-            }
-            System.out.println();
-            if(x.isEmpty()){
-                quit = false;
-            }
-        }
-	}
-	//time complexity: O(n)
-	//space complexity: O(n)
-	  public static void dfsIter(Node root)
-    {
-        Stack<Node> stack = new Stack();   
-        Node currentNode = rootNode;
+	//Eric implemented the method
+  //Adam: bug fixes
+  //Justin: Time complexity
+  //time complexity: O(n)
+  //space complexity: O(n)
+	  public void dfsIter() {
+      Stack<SearchTreeNode<E>> stack = new Stack<>();
+      SearchTreeNode<E> currentNode = overallRoot;
         while (!stack.empty() || currentNode != null)
         {
             if (currentNode != null)
@@ -177,15 +151,20 @@ public class SearchTree<E extends Comparable<E>> {
             }
         }
     }
+  //Eric implemented the methods
+  //Adam: bug fixes
+  //Justin: Time complexity
 	//time complexity: O(n)
 	//space complexity: O(n)
-	  public static void dfsRecur(Node rootNode)
-    {
-        if (rootNode == null) {
-            return;  
-	}
-        dfsRecur(rootNode.left);
-        System.out.print(rootNode.data + " ");
-        dfsRecur(rootNode.right);
+	  public void dfsRecur() {
+      dfsRecurHelper(overallRoot);
+    }
+    private void dfsRecurHelper(SearchTreeNode<E> node) {
+      if (node == null) {
+        return;
+      }
+      dfsRecurHelper(node.left);
+      System.out.print(node.data + " ");
+      dfsRecurHelper(node.right);
     }
 }
