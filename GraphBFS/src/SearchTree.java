@@ -157,4 +157,31 @@ public class SearchTree<E extends Comparable<E>> {
             }
         }
 	}
+	  public static void dfsIter(Node root)
+    {
+        Stack<Node> stack = new Stack();   
+        Node currentNode = rootNode;
+        while (!stack.empty() || currentNode != null)
+        {
+            if (currentNode != null)
+            {
+                stack.push(currentNode);
+                currentNode = currentNode.left;
+            }
+            else {
+                currentNode = stack.pop();
+                System.out.print(currentNode.data + " ");
+                currentNode = currentNode.right;
+            }
+        }
+    }
+	  public static void dfsRecur(Node rootNode)
+    {
+        if (rootNode == null) {
+            return;  
+	}
+        dfsRecur(rootNode.left);
+        System.out.print(rootNode.data + " ");
+        dfsRecur(rootNode.right);
+    }
 }
